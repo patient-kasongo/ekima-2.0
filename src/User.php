@@ -4,32 +4,32 @@ namespace App;
 
 class User
 {
-    private $pseudo;
-    private $password;
-
     private $idUser;
+    private $username;
+
+    private $password;
     private $role;
 
     /**
      * @param mixed $idUser
      */
-    public function setIdUser($idUser): void
+    public function setIdUsers(int $idUser): void
     {
         $this->idUser = $idUser;
     }
 
     /**
-     * @param mixed $pseudo
+     * @param mixed $username
      */
-    public function setPseudo($pseudo): void
+    public function setUsername(string $username): void
     {
-        $this->pseudo = $pseudo;
+        $this->username = $username;
     }
 
     /**
      * @param mixed $password
      */
-    public function setPassword($password): void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -37,28 +37,31 @@ class User
     /**
      * @param mixed $role
      */
-    public function setRole($role): void
+    public function setRole(string $role): void
     {
         $this->role = $role;
     }
+
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getIdUser():int
     {
-        return $this->idUser;
+        return (int)$this->idUser;
     }
+
     /**
      * @return mixed
      */
-    public function getPseudo()
+    public function getUsername(): string
     {
-        return $this->pseudo;
+        return $this->username;
     }
+
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -66,17 +69,17 @@ class User
     /**
      * @return mixed
      */
-    public function getRole()
+    public function getRole():string
     {
         return $this->role;
     }
-    public function redirectUser($role){
-        if($role == 'DIRECTION DES OPERATIONS'){
-            header("Location:/public/cours/management");
-        }elseif( $role == 'DIRECTION DES FINANCES' || $role== 'SECRETARIAT'){
-            header('Location:/public/client/management');
+    public function redirectUser($role):void{
+        if($role == 'SECRETARIAT'){
+            header("Location:/public/gestion-payement");
+        }elseif( $role == 'ADMININISTRATEUR'){
+            header('Location:/public/home');
         }else{
-            header("Location:/public");
+            header("Location:/login");
         }
     }
 }

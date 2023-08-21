@@ -1,24 +1,24 @@
 <?php
     namespace App;
     use PDO;
+    use PDOException;
 
     class Database
     {
         public static $pdo;
 
-        public static function getPdo()
+        public static function getPdo():PDO
         {
             if(!self::$pdo){
                 try{
-                    self::$pdo = new PDO('mysql:host=server72.web-hosting.com;dbname=rofstmln_rof_s','rofstmln_root','3llduevjc1Vc',[
+                    self::$pdo = new PDO('mysql:host=localhost;dbname=ekima','root',null,[
                         PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
                         PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-                    ]);}catch(\PDOException $e){
-                        echo "Erreur de connexion à la base des données";
+                    ]);}catch(PDOException){
+                        echo "connection failed";
                     }
                 }
-                    
-             
+
             return self::$pdo;
         }
     }

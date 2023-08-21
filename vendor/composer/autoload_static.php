@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit3d216f2e5746eebbcb9f9a207db0901e
 {
+    public static $prefixLengthsPsr4 = array (
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+    );
+
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -14,6 +28,8 @@ class ComposerStaticInit3d216f2e5746eebbcb9f9a207db0901e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3d216f2e5746eebbcb9f9a207db0901e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3d216f2e5746eebbcb9f9a207db0901e::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit3d216f2e5746eebbcb9f9a207db0901e::$classMap;
 
         }, null, ClassLoader::class);

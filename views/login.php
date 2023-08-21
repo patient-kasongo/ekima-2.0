@@ -9,8 +9,8 @@
      exit();
  }
  if(isset($_POST['username']) && isset($_POST['password'])){
-     $auth->setPseudo($_POST['username']);
-     $auth->setMotdepasse($_POST['password']);
+     $auth->setUsername($_POST['username']);
+     $auth->setPasssword($_POST['password']);
      $user=$auth->login();
      if($user){
          $user->redirectUser($user->getRole());
@@ -25,8 +25,7 @@
 
 <section class="container text-center">
     <header>
-        <h1 class="display-5"><img src="../../asset/img/palm(2).png">Palm tree strength</h1>
-        <h2 class="red-color">Connection</h2>
+        <h2 class="red-color">Connexion</h2>
     </header>
 
     <form method="post">
@@ -36,6 +35,6 @@
         <div class="form-group m-1">
             <input type="password" name="password" placeholder="mot de pass" class="form-control" required>
         </div>
-        <button type="submit" class="btn red-bg text-white">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </section>

@@ -60,9 +60,9 @@
                         <?php if($user->getRole() == "ADMINISTRATEUR"): ?>
                             <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Acceuil</a>
                             <a href="<?= isset($router) ? $router->generate('addScolarYear') : '/public/login'; ?>" class="nav-item nav-link">Ajouter année</a>
-                            <a href="service.html" class="nav-item nav-link">gestion élève</a>
+                            <a href="#" class="nav-item nav-link">gestion élève</a>
 
-                            <a href="booking.html" class="nav-item nav-link">gestion classe</a>
+                            <a href="<?= isset($router) ? $router->generate('gestion_classe') : '/public/login'; ?>" class="nav-item nav-link">gestion classe</a>
                         <?php elseif ($user->getRole() == "SECRETARIAT"): ?>
                             <a href="index.html" class="nav-item nav-link">Home</a>
                             <a href="about.html" class="nav-item nav-link">About</a>

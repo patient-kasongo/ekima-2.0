@@ -5,8 +5,8 @@
     if (isset($_POST['promotion'],$_POST['option']))
     {
         $classe=new \App\Classe();
-        $classe->option=$_POST['option'];
-        $classe->promotion=$_POST['promotion'];
+        $classe->tOptionIdOption=$_POST['option'];
+        $classe->tPromotionIdPromotion=$_POST['promotion'];
         $verify=$classe->add();
         if($verify){
             echo "<div class='alert alert-success'>vous avez ajouté une classe </div>";

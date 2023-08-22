@@ -13,6 +13,7 @@ $router->map('GET|POST', '/public/modifie-annee-[i:idAnnee]','modifieAnnee','mod
 $router->map('GET|POST', '/public/modify-option-[i:idOption]','modifieOption','modifieOption');
 $router->map('GET|POST', '/public/modify-classe-[i:idClasse]','modifieClasse','modifieClasse');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classes','viewClasses','viewClasses');
+$router->map('GET|POST', '/public/annee-[i:idAnnee]-classes-[i:idClasse]','viewPupilsInClass','viewPupilsInClass');
 $router->map('GET|POST', '/public/gestion-payement','gestion_payement','gestion_payement');
 $router->map('GET|POST', '/public/gestion-classe','gestion_classe','gestion_classe');
 $router->map('GET|POST', '/public/gestion-classe-add-classe','addClasse','addClasse');

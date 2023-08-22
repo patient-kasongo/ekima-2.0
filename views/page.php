@@ -57,18 +57,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
+                        <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Acceuil</a>
                         <?php if($user->getRole() == "ADMINISTRATEUR"): ?>
-                            <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Acceuil</a>
                             <a href="<?= isset($router) ? $router->generate('addScolarYear') : '/public/login'; ?>" class="nav-item nav-link">Ajouter année</a>
-                            <a href="#" class="nav-item nav-link">gestion élève</a>
-
+                            <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
                             <a href="<?= isset($router) ? $router->generate('gestion_classe') : '/public/login'; ?>" class="nav-item nav-link">gestion classe</a>
                         <?php elseif ($user->getRole() == "SECRETARIAT"): ?>
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Services</a>
-
-                            <a href="booking.html" class="nav-item nav-link">Booking</a>
+                            <a href="about.html" class="nav-item nav-link">faire un payement</a>
+                            <a href="service.html" class="nav-item nav-link">list de payement</a>
                         <?php endif; ?>
                         <a href="<?= isset($router) ? $router->generate('logout') : '/public/login'; ?>" class="nav-item nav-link">Se deconnecter</a>
                     </div>

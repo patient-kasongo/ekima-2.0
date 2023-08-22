@@ -14,10 +14,13 @@ $router->map('GET|POST', '/public/modify-option-[i:idOption]','modifieOption','m
 $router->map('GET|POST', '/public/modify-classe-[i:idClasse]','modifieClasse','modifieClasse');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classes','viewClasses','viewClasses');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classes-[i:idClasse]','viewPupilsInClass','viewPupilsInClass');
+$router->map('GET|POST', '/public/annee-[i:idAnnee]-add-pupil','addPupil','addPupil');
+$router->map('GET|POST', '/public/annee-[i:idAnnee]-classe[i:idClasse]-pupil-[a:matricule]','viewPupilDetail','viewPupilDetail');
 $router->map('GET|POST', '/public/gestion-payement','gestion_payement','gestion_payement');
 $router->map('GET|POST', '/public/gestion-classe','gestion_classe','gestion_classe');
 $router->map('GET|POST', '/public/gestion-classe-add-classe','addClasse','addClasse');
 $router->map('GET|POST', '/public/gestion-classe-add-option','addOption','addOption');
+$router->map('GET|POST', '/public/gestion-eleve','gestionEleve','gestionEleve');
 $match = $router->match();
 
 if(isset($match['target'])){

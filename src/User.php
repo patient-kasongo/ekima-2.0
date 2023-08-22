@@ -73,13 +73,8 @@ class User
     {
         return $this->role;
     }
-    public function redirectUser($role):void{
-        if($role == 'SECRETARIAT'){
-            header("Location:/public/gestion-payement");
-        }elseif( $role == 'ADMININISTRATEUR'){
-            header('Location:/public/home');
-        }else{
-            header("Location:/login");
-        }
+    public function redirectUser($url):void{
+        header("Location:$url");
+
     }
 }

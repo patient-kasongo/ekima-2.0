@@ -13,7 +13,7 @@
      $auth->setPasssword($_POST['password']);
      $user=$auth->login();
      if($user){
-         $user->redirectUser($user->getRole());
+         $user->redirectUser('/public/');
          exit();
      }
  $error=true;

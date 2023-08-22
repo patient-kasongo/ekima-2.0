@@ -11,7 +11,7 @@ $router->map('GET|POST', '/public/logout','logout','logout');
 $router->map('GET|POST', '/public/addScolarYear','addScolarYear','addScolarYear');
 $router->map('GET|POST', '/public/modifie-annee-[i:idAnnee]','modifieAnnee','modifieAnnee');
 $router->map('GET|POST', '/public/modify-option-[i:idOption]','modifieOption','modifieOption');
-$router->map('GET|POST', '/public/modify-classe-[i:idOption]','modifieClasse','modifieClasse');
+$router->map('GET|POST', '/public/modify-classe-[i:idClasse]','modifieClasse','modifieClasse');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classes','viewClasses','viewClasses');
 $router->map('GET|POST', '/public/gestion-payement','gestion_payement','gestion_payement');
 $router->map('GET|POST', '/public/gestion-classe','gestion_classe','gestion_classe');

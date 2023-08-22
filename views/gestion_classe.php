@@ -8,8 +8,8 @@
             <?php foreach ($classes as $classe): ?>
                 <div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s">
                     <div class="d-flex align-items-center justify-content-between bg-light p-4">
-                        <h5 class="text-truncate me-3 mb-0"><?= $classe->nomOption.' '.$classe->nomPromotion ?></h5>
-                        <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieClasse') : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
+                        <h5 class="text-truncate me-3 mb-0"><?= $classe->nomPromotion.' '.$classe->nomOption ?></h5>
+                        <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieClasse',['idClasse'=>$classe->idClasse]) : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
                     </div>
                 </div>
             <?php endforeach; ?>

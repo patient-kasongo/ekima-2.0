@@ -2,13 +2,55 @@
 $idAnnee= $match['params']['idAnnee'] ?? null;
 $idClasse= $match['params']['idClasse'] ?? null;
 
+$auth=new \App\Authentification(\App\Database::getPdo());
+$user=$auth->isConnect();
+$bool= $user->getRole()=='ADMINISTRATEUR';
 $eleves=\App\Eleve::getPupilInClass($idAnnee,$idClasse);
+
+$lesMois=["SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE","JANVIER","FEVRIER","MARS","AVRIL","MAIS","JUIN"];
+
 if(empty($eleves) || !$eleves):?>
     <div class="display-5 text-center">Classe vide</div>
 <?php else: ?>
-    <ul class="list-group m-4">
-        <?php foreach ($eleves as $eleve):?>
-            <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="m-1 link-dark"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
-         <?php endforeach; ?>
-    </ul>
+    <?php if(!$bool) :?>
+        <table class="table">
+            <thead>
+            <th>Nom</th>
+            <th>Septembre</th>
+            <th>Octobre</th>
+            <th>Novembre</th>
+            <th>Décembre</th>
+            <th>Janvier</th>
+            <th>Février</th>
+            <th>Mars</th>
+            <th>Avril</th>
+            <th>Mai</th>
+            <th>Juin</th>
+            </thead>
+            <?php foreach ($eleves as $eleve):?>
+                <tr>
+                    <td>
+                        <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="link-dark"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
+                    </td>
+                    <?php foreach ($lesMois as $mois):?>
+                        <td>
+                            <?php if(\App\Recu::isPayed($idAnnee, $eleve->matricule, $mois)): ?>
+                                <div>ok</div>
+                            <?php else: ?>
+                                <div>-</div>
+                            <?php endif; ?>
+                        </td>
+                    <?php endforeach;?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <ul class="list-group">
+            <?php foreach ($eleves as $eleve):?>
+            <div class="list-group-item-action list-group-item">List des élèves</div>
+                <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClsse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
+            <?php endforeach; ?>
+        </ul>
+
+    <?php endif; ?>
 <?php endif; ?>

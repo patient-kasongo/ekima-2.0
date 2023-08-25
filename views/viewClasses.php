@@ -26,6 +26,7 @@
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('addPupil',['idAnnee'=>$idAnnee]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
+
             <?php endif; ?>
         </div>
     <?php endif; ?>

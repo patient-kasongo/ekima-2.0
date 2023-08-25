@@ -62,9 +62,6 @@
                             <a href="<?= isset($router) ? $router->generate('addScolarYear') : '/public/login'; ?>" class="nav-item nav-link">Ajouter année</a>
                             <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
                             <a href="<?= isset($router) ? $router->generate('gestion_classe') : '/public/login'; ?>" class="nav-item nav-link">gestion classe</a>
-                        <?php elseif ($user->getRole() == "SECRETARIAT"): ?>
-                            <a href="about.html" class="nav-item nav-link">faire un payement</a>
-                            <a href="service.html" class="nav-item nav-link">list de payement</a>
                         <?php endif; ?>
                         <a href="<?= isset($router) ? $router->generate('logout') : '/public/login'; ?>" class="nav-item nav-link">Se deconnecter</a>
                     </div>

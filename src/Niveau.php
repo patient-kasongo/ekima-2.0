@@ -23,5 +23,20 @@ class Niveau
             return false;
         }
     }
+    public function modify():bool
+    {
+        try {
+            $pdo=Database::getPdo();
+            $query="update niveau set tClasseIdClasse=:idClasse where tAnneeIdAnnee=:idAnnee and tEleveMatricule =:matricule";
+            $stmt=$pdo->prepare($query);
+            $stmt->execute(['matricule'=>$this->tEleveMatricule,
+                'idAnnee'=>$this->tAnneeIdAnnee,
+                'idClasse'=>$this->tClasseIdClasse
+            ]);
+            return true;
+        } catch (\PDOException){
+            return false;
+        }
+    }
 
 }

@@ -29,7 +29,7 @@
         <?php if($bool): ?>
             <a class="btn-primary btn" href="<?= isset($router) ? $router->generate('modifyPupil', ['idAnnee' => $idAnnee,'idClasse'=>$idClasse, 'matricule'=>$matricule]) : '/public/login' ?>">Modifier</a>
         <?php else: ?>
-            <a class="btn-primary btn">Payement</a>
+            <a class="btn-primary btn" href="<?= isset($router) ? $router->generate('gestion_payement', ['idAnnee' => $idAnnee,'matricule'=>$matricule]) : '/public/login' ?>">Payement</a>
         <?php endif; ?>
     </div>
     <h3 class="text-center">Situation financière</h3>

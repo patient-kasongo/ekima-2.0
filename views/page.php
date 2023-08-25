@@ -124,6 +124,7 @@
 
     <!-- Template Javascript -->
     <script src="../../asset/js/main.js"></script>
+    <script src="../../asset/js/file.js"></script>
 </body>
 
 </html>

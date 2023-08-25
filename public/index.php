@@ -17,7 +17,7 @@ $router->map('GET|POST', '/public/annee-[i:idAnnee]-classes-[i:idClasse]','viewP
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-add-pupil','addPupil','addPupil');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classe-[i:idClasse]-pupil-[a:matricule]','viewPupilDetail','viewPupilDetail');
 $router->map('GET|POST', '/public/annee-[i:idAnnee]-classe-[i:idClasse]-pupil-[a:matricule]-modify','modifyPupil','modifyPupil');
-$router->map('GET|POST', '/public/gestion-payement','gestion_payement','gestion_payement');
+$router->map('GET|POST', '/public/annee-[i:idAnnee]-pupil-[a:matricule]-payement','gestion_payement','gestion_payement');
 $router->map('GET|POST', '/public/gestion-classe','gestion_classe','gestion_classe');
 $router->map('GET|POST', '/public/gestion-classe-add-classe','addClasse','addClasse');
 $router->map('GET|POST', '/public/gestion-classe-add-option','addOption','addOption');

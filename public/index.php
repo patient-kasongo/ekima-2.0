@@ -22,6 +22,7 @@ $router->map('GET|POST', '/public/gestion-classe','gestion_classe','gestion_clas
 $router->map('GET|POST', '/public/gestion-classe-add-classe','addClasse','addClasse');
 $router->map('GET|POST', '/public/gestion-classe-add-option','addOption','addOption');
 $router->map('GET|POST', '/public/gestion-eleve','gestionEleve','gestionEleve');
+$router->map('GET|POST', '/public/recu-[i:idRecu]-detail','viewRecuDetail','viewRecuDetail');
 $match = $router->match();
 
 if(isset($match['target'])){

@@ -39,7 +39,13 @@
     <?php else: ?>
         <ul>
             <?php foreach ($sf as $s): ?>
-                <li><?= $s->motif.' '.$s->mois ?></li>
+                <li>
+                    <?php
+                        echo $s->motif.' '.$s->mois;
+                        if(!$bool): ?>
+                            <a href="<?= isset($router) ? $router->generate('viewRecuDetail', ['idRecu' => $s->idRecu]) : '/public/login' ?>" class="print">imprimer</a>
+                        <?php endif; ?>
+                </li>
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>

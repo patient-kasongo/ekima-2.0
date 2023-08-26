@@ -114,5 +114,16 @@ class Recu
             }
         }
     }
-
+    public static function getRecuById(int $idRecu):Array|false{
+        try{
+            $pdo=Database::getPdo();
+            $query="select idRecu,sommeEnChiffre,sommeEnLettre,dateDuJour,motif,mois,nom,postnom,prenom from recu,eleve where idRecu=? and recu.tEleveMatricule=eleve.matricule";
+            $stmt=$pdo->prepare($query);
+            $stmt->execute([$idRecu]);
+            $recu=$stmt->fetchAll();
+            return $recu ?? false;
+        }catch (\PDOException){
+            return false;
+        }
+    }
 }

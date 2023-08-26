@@ -2,6 +2,7 @@
     $idAnnee= $match['params']['idAnnee'] ?? null;
     $idClasse= $match['params']['idClasse'] ?? null;
 
+
     $auth=new \App\Authentification(\App\Database::getPdo());
     $user=$auth->isConnect();
     $bool= $user->getRole()=='ADMINISTRATEUR';
@@ -15,6 +16,7 @@
         <?php if(!$bool) :?>
             <table class="table">
                 <thead>
+                    <th>Nom</th>
                     <?php foreach ($lesMois as $mois):?>
                         <th>
                             <?= $mois ?>
@@ -40,9 +42,9 @@
         </table>
     <?php else: ?>
         <ul class="list-group">
+            <div class="list-group-item-action list-group-item">List des élèves</div>
             <?php foreach ($eleves as $eleve):?>
-                <div class="list-group-item-action list-group-item">List des élèves</div>
-                <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClsse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
+                <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
             <?php endforeach; ?>
         </ul>
 

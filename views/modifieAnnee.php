@@ -1,4 +1,5 @@
 <?php
+    \App\Authentification::accessBlocker();
     $id=$match['params']['idAnnee'] ?? 0;
     $annee=\App\Annee::getAnneeById($id);
     if($annee && isset($_POST['annee'],$_POST['debut'],$_POST['fin'])){

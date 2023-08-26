@@ -1,4 +1,5 @@
 <?php
+    \App\Authentification::accessBlocker();
     if(isset($_POST['designation'])){
         $nOption=new \App\Option();
         $nOption->nomOption=$_POST['designation'];

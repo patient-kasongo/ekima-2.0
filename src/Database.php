@@ -7,7 +7,7 @@
     {
         public static $pdo;
 
-        public static function getPdo():PDO
+        public static function getPdo():PDO|null
         {
             if(!self::$pdo){
                 try{
@@ -16,6 +16,7 @@
                         PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
                     ]);}catch(PDOException){
                         echo "connection failed";
+                        return null;
                     }
                 }
 

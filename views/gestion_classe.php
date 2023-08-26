@@ -1,5 +1,6 @@
-<h3 class="text-center">Gestion des classes</h3>
 <?php
+    \App\Authentification::accessBlocker();
+    echo '<h3 class="text-center">Gestion des classes</h3>';
     $classes=\App\Classe::getClasses();
     if (empty($classes) || !$classes): ?>
         <div class="display-4 text-center">Aucune classe</div>

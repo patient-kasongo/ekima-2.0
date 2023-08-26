@@ -1,4 +1,5 @@
 <?php
+    \App\Authentification::accessBlocker();
     $classes=\App\Classe::getClasses();
     $idAnnee=$match['params']['idAnnee'] ?? null;
     $auth=new \App\Authentification(\App\Database::getPdo());

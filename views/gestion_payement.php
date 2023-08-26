@@ -1,4 +1,5 @@
 <?php
+    \App\Authentification::accessBlocker();
     $idAnnee=$match['params']['idAnnee'] ?? null;
     $matricule=$match['params']['matricule'] ?? null;
     $lesMois=["SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE","JANVIER","FEVRIER","MARS","AVRIL","MAIS","JUIN"];

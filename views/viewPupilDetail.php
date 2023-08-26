@@ -43,5 +43,5 @@
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-
+    <button class="btn-primary btn" id="print">Imprimer</button>
 </div>

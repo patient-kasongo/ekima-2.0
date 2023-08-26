@@ -34,6 +34,7 @@
 
     <!-- Template Stylesheet -->
     <link href="../../asset/css/style.css" rel="stylesheet">
+    <link href="../../asset/css/print.css" rel="stylesheet" media="print">
 
 </head>
 
@@ -47,7 +48,7 @@
     <!-- Spinner End -->
     <?php if($user!=null) :?>
         <!-- Navbar Start -->
-        <div class="container-fluid nav-bar bg-light">
+        <div class="container-fluid nav-bar bg-light" id="navbar_print">
             <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
                 <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
                     <h1 class="text-primary m-0">Ekima</h1>
@@ -72,7 +73,7 @@
 
 
         <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5">
+        <div class="container-fluid p-0 mb-5" id="carousel_print">
             <div class="owl-carousel header-carousel position-relative">
                 <div class="owl-carousel-item position-relative">
                     <img class="img-fluid" src="../../asset/img/carousel-1.jpg" alt="">
@@ -125,6 +126,7 @@
     <!-- Template Javascript -->
     <script src="../../asset/js/main.js"></script>
     <script src="../../asset/js/file.js"></script>
+
 </body>
 
 </html>

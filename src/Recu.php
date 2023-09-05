@@ -30,19 +30,19 @@ class Recu
             return false;
         }
     }
-    public static function isPayed(string $idAnnee, string $matricule, string $mois):bool{
+    public static function getMonthPayement(string $idAnnee, string $matricule, string $mois):Array{
         try {
             $pdo=Database::getPdo();
-            $query="select idRecu from recu where tEleveMatricule=:matricule and tAnneeIdAnnee=:idAnnee and mois=:mois";
+            $query="select sommeEnChiffre from recu where tEleveMatricule=:matricule and tAnneeIdAnnee=:idAnnee and mois=:mois";
             $stmt=$pdo->prepare($query);
             $stmt->execute(['matricule'=>$matricule,
                 'idAnnee'=>$idAnnee,
                 'mois'=>$mois
             ]);
-            $id=$stmt->fetchAll();
-            return !empty($id);
+            $mois=$stmt->fetchAll();
+            return $mois;
         } catch (\PDOException){
-            return false;
+            return [];
         }
     }
     public static function convertirEnLettres($nombre)

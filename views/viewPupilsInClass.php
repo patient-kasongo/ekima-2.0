@@ -30,8 +30,13 @@
                     </td>
                     <?php foreach ($lesMois as $mois):?>
                         <td>
-                            <?php if(\App\Recu::isPayed($idAnnee, $eleve->matricule, $mois)): ?>
-                                <div>ok</div>
+                            <?php
+                                $mois=\App\Recu::getMonthPayement($idAnnee, $eleve->matricule, $mois);
+                            ?>
+                            <?php if(!empty($mois)) :?>
+                                    <?php foreach ($mois as $oneMonth): ?>
+                                        <div>- <?= $oneMonth->sommeEnChiffre ?>$ </div>
+                                    <?php endforeach;?>
                             <?php else: ?>
                                 <div>-</div>
                             <?php endif; ?>

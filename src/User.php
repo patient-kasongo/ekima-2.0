@@ -77,4 +77,31 @@ class User
         header("Location:$url");
 
     }
+    public function changePassword($newPassword){
+        $pdo=Database::getPdo();
+        try{
+            $hash=password_hash($newPassword, PASSWORD_DEFAULT);
+            $query="UPDATE user SET password=:password WHERE username=:username";
+            $stmt=$pdo->prepare($query);
+            $stmt->execute(['password'=>$hash,
+                'username'=>$this->username]);
+            return true;
+        } catch (\PDOException){
+            return false;
+        }
+    }
+    public static function resetPasswordCaisse(){
+        $pdo=Database::getPdo();
+        try{
+            $pass="1234";
+            $hash=password_hash($pass, PASSWORD_DEFAULT);
+            $query="UPDATE user SET password=:password WHERE username=:username";
+            $stmt=$pdo->prepare($query);
+            $stmt->execute(['password'=>$hash,
+                'username'=>"caisse"]);
+            return true;
+        } catch (\PDOException){
+            return false;
+        }
+    }
 }

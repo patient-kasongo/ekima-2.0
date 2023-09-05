@@ -23,6 +23,9 @@ $router->map('GET|POST', '/public/gestion-classe-add-classe','addClasse','addCla
 $router->map('GET|POST', '/public/gestion-classe-add-option','addOption','addOption');
 $router->map('GET|POST', '/public/gestion-eleve','gestionEleve','gestionEleve');
 $router->map('GET|POST', '/public/recu-[i:idRecu]-detail','viewRecuDetail','viewRecuDetail');
+$router->map('GET|POST', '/public/gestion-password','gestionMotDePasse','gestionMotDePasse');
+$router->map('GET|POST', '/public/change-password','changePassword','changePassword');
+$router->map('GET|POST', '/public/reset-caisse-password','resetPassword','resetPassword');
 $match = $router->match();
 
 if(isset($match['target'])){

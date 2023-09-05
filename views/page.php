@@ -64,8 +64,8 @@
                             <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
                             <a href="<?= isset($router) ? $router->generate('gestion_classe') : '/public/login'; ?>" class="nav-item nav-link">gestion classe</a>
                         <?php endif; ?>
+                        <a href="<?= isset($router) ? $router->generate('gestionMotDePasse') : '/public/login'; ?>" class="nav-item nav-link">Mot de passe</a>
                         <a href="<?= isset($router) ? $router->generate('logout') : '/public/login'; ?>" class="nav-item nav-link">Se deconnecter</a>
-                        <a href="<?= isset($router) ? $router->generate('password') : '/public/login'; ?>" class="nav-item nav-link">Mot de passe</a>
                     </div>
                 </div>
             </nav>

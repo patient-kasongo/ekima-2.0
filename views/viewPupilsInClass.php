@@ -14,15 +14,21 @@
         <div class="display-5 text-center">Classe vide</div>
     <?php else: ?>
         <?php if(!$bool) :?>
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
-                    <th>Nom</th>
-                    <?php foreach ($lesMois as $mois):?>
-                        <th>
-                            <?= $mois ?>
-                        </th>
-                    <?php endforeach;?>
+                    <tr>
+                        <th class="text-center" colspan="11"><h4>Liste de payements</h4></th>
+                    </tr>
+
                 </thead>
+                <tr>
+                    <td class="text-center">Nom</td>
+                    <?php foreach ($lesMois as $mois):?>
+                        <td class="text-center">
+                            <?= $mois ?>
+                        </td>
+                    <?php endforeach;?>
+                </tr>
             <?php foreach ($eleves as $eleve):?>
                 <tr>
                     <td>
@@ -31,10 +37,10 @@
                     <?php foreach ($lesMois as $mois):?>
                         <td>
                             <?php
-                                $mois=\App\Recu::getMonthPayement($idAnnee, $eleve->matricule, $mois);
+                                $moisPayements=\App\Recu::getMonthPayement($idAnnee, $eleve->matricule, $mois);
                             ?>
-                            <?php if(!empty($mois)) :?>
-                                    <?php foreach ($mois as $oneMonth): ?>
+                            <?php if(!empty($moisPayements)) :?>
+                                    <?php foreach ($moisPayements as $oneMonth): ?>
                                         <div>- <?= $oneMonth->sommeEnChiffre ?>$ </div>
                                     <?php endforeach;?>
                             <?php else: ?>
@@ -44,14 +50,36 @@
                     <?php endforeach;?>
                 </tr>
             <?php endforeach; ?>
+
         </table>
     <?php else: ?>
-        <ul class="list-group">
-            <div class="list-group-item-action list-group-item">List des élèves</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="7" class="text-center">List des élèves</th>
+                </tr>
+            </thead>
+            <tr>
+                <td class="text-center">Nom</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <?php foreach ($eleves as $eleve):?>
-                <a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a>
+                <tr>
+                    <td><a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             <?php endforeach; ?>
-        </ul>
+        </table>
 
     <?php endif; ?>
     <button class="btn-primary btn" id="print">Imprimer</button>

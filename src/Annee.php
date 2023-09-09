@@ -61,5 +61,25 @@ class Annee
             return false;
         }
     }
+    public function setAnneeInSession():void
+    {
+        if(session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
+        $_SESSION['idAnnee']=$this->idAnnee;
+    }
+    public static function accessBlockerBySession():void
+    {
+        if(!isset($_SESSION['idAnnee'])){
+            header("Location:/public");
+        }
+    }
+    public static function getAnneeInSession():int
+    {
+        if(session_status() == PHP_SESSION_NONE){
+            session_start();
+        }
+        return $_SESSION['idAnnee'];
+    }
 
 }

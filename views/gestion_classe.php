@@ -1,5 +1,6 @@
 <?php
     \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     echo '<h3 class="text-center">Gestion des classes</h3>';
     $classes=\App\Classe::getClasses();
     if (empty($classes) || !$classes): ?>

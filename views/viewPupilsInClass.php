@@ -1,4 +1,6 @@
 <?php
+    \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     $idAnnee= $match['params']['idAnnee'] ?? null;
     $idClasse= $match['params']['idClasse'] ?? null;
 

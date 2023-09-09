@@ -1,4 +1,6 @@
 <?php
+    \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     $idRecu=$match["params"]["idRecu"] ?? null;
     $recu=\App\Recu::getRecuById($idRecu);
     ?>

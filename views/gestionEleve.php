@@ -1,5 +1,6 @@
 <?php
     \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
 ?>
 <div class="container">
     <div class="row g-4 m-3">

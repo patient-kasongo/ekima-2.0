@@ -1,6 +1,7 @@
 <?php
     echo '<h3 class="m-3 text-center">Ajout d\'une salle de classe</h3>';
     \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     $options=\App\Option::getOptions();
     $promotions=\App\Promotion::getPromotions();
     if (isset($_POST['promotion'],$_POST['option']))

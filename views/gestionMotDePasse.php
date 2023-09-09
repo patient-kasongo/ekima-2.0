@@ -1,3 +1,7 @@
+<?php
+    \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
+?>
 <div class="row g-4 m-3">
     <div class="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.1s">
         <div class="d-flex align-items-center justify-content-between bg-light p-4">

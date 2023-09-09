@@ -1,5 +1,6 @@
 <?php
     \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     echo '<h3 class="text-center">Modification de la salle</h3>';
     $id=$match['params']['idClasse'] ?? 0;
     $classe=\App\Classe::getClasseById($id);

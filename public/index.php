@@ -26,6 +26,7 @@ $router->map('GET|POST', '/public/recu-[i:idRecu]-detail','viewRecuDetail','view
 $router->map('GET|POST', '/public/gestion-password','gestionMotDePasse','gestionMotDePasse');
 $router->map('GET|POST', '/public/change-password','changePassword','changePassword');
 $router->map('GET|POST', '/public/reset-caisse-password','resetPassword','resetPassword');
+$router->map('GET|POST', '/public/set-annee-[i:idAnnee]','setAnnee','setAnnee');
 $match = $router->match();
 
 if(isset($match['target'])){

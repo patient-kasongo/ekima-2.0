@@ -1,5 +1,6 @@
 <?php
     \App\Authentification::accessBlocker();
+    \App\Annee::accessBlockerBySession();
     $idAnnee=$match['params']['idAnnee'] ?? null;
     $classes=\App\Classe::getClasses();
     if (isset($_POST['name'],$_POST['postnom'],$_POST['prenom'],$_POST['sexe'],$_POST['numero'],$_POST['classe'])){

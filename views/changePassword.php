@@ -1,6 +1,7 @@
 <?php
 require VENDOR;
 \App\Authentification::accessBlocker();
+\App\Annee::accessBlockerBySession();
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $auth=new \App\Authentification(\App\Database::getPdo());
     $auth->setUsername($_POST['username']);

@@ -18,7 +18,7 @@ if($annees == null): ?>
                     <?php if ($bool) :?>
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
                     <?php endif; ?>
-                    <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('viewClasses', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>
+                    <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('setAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         <?php endforeach; ?>

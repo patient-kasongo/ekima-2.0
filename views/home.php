@@ -16,6 +16,7 @@ if($annees == null): ?>
                 <div class="d-flex align-items-center justify-content-between bg-light p-4">
                     <h5 class="text-truncate me-3 mb-0"><?= $annee->annee ?></h5>
                     <?php if ($bool) :?>
+                        <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('bilanAnnuel', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-download"></i></a>
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
                     <?php endif; ?>
                     <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('setAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>

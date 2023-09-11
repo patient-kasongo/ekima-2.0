@@ -82,7 +82,7 @@ class Authentification
         if(session_status() == PHP_SESSION_NONE){
             session_start();
         }
-        session_destroy();
+        unset($_SESSION['auth']);
     }
     public static function accessBlocker():void
     {

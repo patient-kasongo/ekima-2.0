@@ -27,6 +27,9 @@ $router->map('GET|POST', '/public/gestion-password','gestionMotDePasse','gestion
 $router->map('GET|POST', '/public/change-password','changePassword','changePassword');
 $router->map('GET|POST', '/public/reset-caisse-password','resetPassword','resetPassword');
 $router->map('GET|POST', '/public/set-annee-[i:idAnnee]','setAnnee','setAnnee');
+$router->map('GET|POST', '/public/bilan-annee','bilanAnnuel','bilanAnnuel');
+$router->map('GET|POST', '/public/search','search','search');
+
 $match = $router->match();
 
 if(isset($match['target'])){

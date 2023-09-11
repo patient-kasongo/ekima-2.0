@@ -3,6 +3,7 @@
     $pdo = \App\Database::getPdo();
     $auth = new \App\Authentification($pdo);
     $user = $auth->isConnect();
+    $idAnnee=\App\Annee::getAnneeInSession();
 
 ?>
 
@@ -58,14 +59,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
-                        <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Acceuil</a>
                         <?php if($user->getRole() == "ADMINISTRATEUR"): ?>
                             <a href="<?= isset($router) ? $router->generate('addScolarYear') : '/public/login'; ?>" class="nav-item nav-link">Ajouter année</a>
-                            <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
+                            <?php if($idAnnee): ?>
+                                <a href="<?= isset($router) ? $router->generate('viewClasses',['idAnnee'=>$idAnnee]) : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
+                            <?php else: ?>
+                                <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">gestion élève</a>
+                            <?php endif; ?>
                             <a href="<?= isset($router) ? $router->generate('gestion_classe') : '/public/login'; ?>" class="nav-item nav-link">gestion classe</a>
                         <?php endif; ?>
                         <a href="<?= isset($router) ? $router->generate('gestionMotDePasse') : '/public/login'; ?>" class="nav-item nav-link">Mot de passe</a>
+                        <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Année scolaire</a>
                         <a href="<?= isset($router) ? $router->generate('logout') : '/public/login'; ?>" class="nav-item nav-link">Se deconnecter</a>
+                        <?php if($idAnnee):?>
+                            <form class="form-inline" action="/public/search" method="post">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" name="search" required>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </nav>

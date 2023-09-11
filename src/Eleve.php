@@ -124,4 +124,18 @@ class Eleve
             return false;
         }
     }
+    public static function search(string $element):array
+    {
+        try {
+            $idAnnee=Annee::getAnneeInSession();
+            $pdo = Database::getPdo();
+            $query = "SELECT matricule, nom, postnom, prenom, sexe, numeroDuResponsable, tClasseIdClasse FROM eleve, option, promotion, classe, niveau, annee WHERE (eleve.matricule=niveau.tEleveMatricule AND niveau.tAnneeIdAnnee=annee.idAnnee AND niveau.tClasseIdClasse=classe.idClasse AND classe.tPromotionIdPromotion=promotion.idPromotion AND classe.tOptionIdOption=option.idOption AND idAnnee=:idAnnee) AND CONCAT(matricule,nom, postnom, prenom) LIKE :search";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute(['idAnnee'=>$idAnnee, 'search' => '%' . $element . '%']);
+            $eleve = $stmt->fetchAll();
+            return $eleve ?? [];
+        } catch (\PDOException $e) {
+            return [];
+        }
+    }
 }

@@ -71,15 +71,27 @@ class Annee
     public static function accessBlockerBySession():void
     {
         if(!isset($_SESSION['idAnnee'])){
-            header("Location:/public");
+            header("Location:/public/");
         }
     }
-    public static function getAnneeInSession():int
+    public static function getAnneeInSession():int | null
     {
         if(session_status() == PHP_SESSION_NONE){
             session_start();
         }
-        return $_SESSION['idAnnee'];
+        return $_SESSION['idAnnee'] ?? null;
     }
+    public static function getAnnuelBilan(int $idAnnee):Array{
+        try {
+            $pdo=Database::getPdo();
+            $query="select nom, postnom, prenom,sexe, nomOption, nomPromotion, sommeEnChiffre, sommeEnLettre, dateDuJour, motif,mois from eleve, recu, niveau,annee,classe,promotion,option where recu.tEleveMatricule=eleve.matricule AND eleve.matricule=niveau.tEleveMatricule AND annee.idAnnee=recu.tAnneeIdAnnee AND niveau.tAnneeIdAnnee=annee.idAnnee AND niveau.tClasseIdClasse=classe.idClasse AND classe.tPromotionIdPromotion=promotion.idPromotion AND classe.tOptionIdOption=option.idOption AND idAnnee=:idAnnee";
+            $stmt=$pdo->prepare($query);
+            $stmt->execute(['idAnnee'=>$idAnnee]);
+            $bilans=$stmt->fetchAll();
+            return $bilans ?? [];
+        } catch (\PDOException $e){
+            return [];
+        }
 
+    }
 }

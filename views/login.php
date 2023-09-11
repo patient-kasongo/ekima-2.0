@@ -13,7 +13,13 @@
      $auth->setPasssword($_POST['password']);
      $user=$auth->login();
      if($user){
-         $user->redirectUser('/public/');
+         $idAnne=\App\Annee::getAnneeInSession();
+         if($idAnne){
+             $route=isset($router) ? $router->generate('viewClasses', ['idAnnee' => $idAnne]) : '/public/login';
+         }else{
+             $route=isset($router) ? $router->generate('home') : '/public/login';
+         }
+         $user->redirectUser($route);
          exit();
      }
  $error=true;

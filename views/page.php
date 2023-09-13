@@ -72,8 +72,8 @@
                         <a href="<?= isset($router) ? $router->generate('home') : '/public/login'; ?>" class="nav-item nav-link">Année scolaire</a>
                         <a href="<?= isset($router) ? $router->generate('logout') : '/public/login'; ?>" class="nav-item nav-link">Se deconnecter</a>
                         <?php if($idAnnee):?>
-                            <form class="form-inline" action="/public/search" method="post">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" name="search" required>
+                            <form class="form-inline m-3" action="/public/search" method="post">
+                                <input class="form-control" type="search" placeholder="Rechercher" aria-label="Search" name="search" required style="width: 200px!important; display: inline">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                             </form>
                         <?php endif; ?>

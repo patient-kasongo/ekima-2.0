@@ -1,11 +1,14 @@
 <?php
     \App\Authentification::accessBlocker();
-    \App\Annee::accessBlockerBySession();
+    if(!isset($match["params"]["id"])){
+        \App\Annee::accessBlockerBySession();
+    }
     $classes=\App\Classe::getClasses();
     $idAnnee=$match['params']['idAnnee'] ?? null;
     $auth=new \App\Authentification(\App\Database::getPdo());
     $user=$auth->isConnect();
     $bool= $user->getRole()=='ADMINISTRATEUR';
+    $close=$match['name'] == 'closeScolareYear';
     if(empty($classes)) :?>
         <div class='display-3 text-center'>Aucune classe dans notre base des données</div>;
     <?php else: ?>
@@ -15,6 +18,9 @@
                     <div class="d-flex align-items-center justify-content-between bg-light p-4">
                         <h5 class="text-truncate me-3 mb-0"><?= $classe->nomPromotion.' '.$classe->nomOption ?></h5>
                         <?php if ($bool) :?>
+                            <?php if($close) :?>
+                                <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('closeYear',['idClasse'=>$classe->idClasse, 'idAnnee'=>$idAnnee]) : '/public/login' ?>"><i class="bi bi-lock-fill"></i></a>
+                            <?php endif; ?>
                             <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieClasse',['idClasse'=>$classe->idClasse]) : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
                         <?php endif; ?>
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('viewPupilsInClass', ['idAnnee' => $idAnnee, 'idClasse'=>$classe->idClasse]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>

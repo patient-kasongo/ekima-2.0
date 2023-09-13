@@ -94,4 +94,20 @@ class Annee
         }
 
     }
+    public static function getSecondYear(int $idAnnee):Annee|false{
+        $actuelYear=Annee::getAnneeById($idAnnee);
+        $actuelYear=$actuelYear->annee;
+        $tab=explode('-',$actuelYear);
+        $secondYear=(string)($tab[0] +1).'-'.(string)($tab[1] +1);
+        try {
+            $pdo=Database::getPdo();
+            $query="select * from annee where annee=?";
+            $stmt= $pdo->prepare($query);
+            $stmt->execute([$secondYear]);
+            $annee= $stmt->fetchObject(Annee::class);
+            return $annee ?? false;
+        } catch (\PDOException){
+            return false;
+        }
+    }
 }

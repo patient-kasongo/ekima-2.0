@@ -1,5 +1,4 @@
 <?php
-require VENDOR;
 \App\Authentification::accessBlocker();
 $annees=\App\Annee::getYears();
 $auth=new \App\Authentification(\App\Database::getPdo());
@@ -18,6 +17,7 @@ if($annees == null): ?>
                     <?php if ($bool) :?>
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('bilanAnnuel', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-download"></i></a>
                         <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('modifieAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-pencil-square"></i></a>
+                        <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('closeScolareYear', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="bi bi-lock-fill"></i></a>
                     <?php endif; ?>
                     <a class="btn btn-outline-primary border-2 border-white" href="<?= isset($router) ? $router->generate('setAnnee', ['idAnnee' => $annee->idAnnee]) : '/public/login' ?>"><i class="fa fa-arrow-right"></i></a>
                 </div>

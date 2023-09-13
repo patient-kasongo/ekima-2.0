@@ -71,11 +71,11 @@ class Eleve
     {
         try {
             $pdo=Database::getPdo();
-            $query= "select matricule,nom, postnom, prenom from eleve, option, promotion, classe, niveau, annee where eleve.matricule=niveau.tEleveMatricule and niveau.tAnneeIdAnnee=annee.idAnnee and niveau.tClasseIdClasse=classe.idClasse and classe.tPromotionIdPromotion=promotion.idPromotion and classe.tOptionIdOption=option.idOption and tAnneeIdAnnee=:idAnnee and tClasseIdClasse=:idClasse";
+            $query= "select matricule,nom, postnom, prenom,sexe,numeroDuResponsable,tClasseIdClasse,nomOption,nomPromotion from eleve, option, promotion, classe, niveau, annee where eleve.matricule=niveau.tEleveMatricule and niveau.tAnneeIdAnnee=annee.idAnnee and niveau.tClasseIdClasse=classe.idClasse and classe.tPromotionIdPromotion=promotion.idPromotion and classe.tOptionIdOption=option.idOption and tAnneeIdAnnee=:idAnnee and tClasseIdClasse=:idClasse";
             $stmt= $pdo->prepare($query);
             $stmt->execute(['idAnnee'=>$idAnnee,'idClasse'=>$idClasse]);
-            $eleves=$stmt->fetchAll();
-            return $eleves ?? false;
+            $eleve=$stmt->fetchAll();
+            return $eleve ?? false;
         } catch (\PDOException){
             return false;
         }

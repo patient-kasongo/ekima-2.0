@@ -29,6 +29,8 @@ $router->map('GET|POST', '/public/reset-caisse-password','resetPassword','resetP
 $router->map('GET|POST', '/public/set-annee-[i:idAnnee]','setAnnee','setAnnee');
 $router->map('GET|POST', '/public/bilan-annee-[i:idAnnee]','bilanAnnuel','bilanAnnuel');
 $router->map('GET|POST', '/public/search','search','search');
+$router->map('GET|POST', '/public/close-scolare-year-[i:idAnnee]','viewClasses','closeScolareYear');
+$router->map('GET|POST', '/public/close-scolare-year-[i:idAnnee]-classe-[i:idClasse]','closeYear','closeYear');
 
 $match = $router->match();
 

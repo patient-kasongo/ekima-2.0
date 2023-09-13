@@ -8,7 +8,7 @@
         $eleve=new \App\Eleve();
         $eleve->nom=strtoupper($_POST['name']);
         $eleve->postnom=strtoupper($_POST['postnom']);
-        $eleve->prenom=strtolower($_POST['prenom']);
+        $eleve->prenom=ucfirst($_POST['prenom']);
         $eleve->sexe=$_POST['sexe'];
         $eleve->numeroDuResponsable=$_POST['numero'];
         $eleve->setMatricule();

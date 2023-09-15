@@ -17,6 +17,9 @@
         $verify=$recu->add();
         if($verify){
             echo '<div class="alert-success alert">Vous avez effectué un payement</div>';
+            $user=new \App\User();
+            $route=isset($router) ? $router->generate('viewClasses', ['idAnnee' => $idAnnee]) : '/public/login';
+            $user->redirectUser($route);
         }else{
             echo '<div class="alert-danger alert">Vous avons rencontré une erreur</div>';
         }

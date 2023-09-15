@@ -1,4 +1,4 @@
-<?php
+A2 A2  <?php
     \App\Authentification::accessBlocker();
     $idAnnee=$match['params']['idAnnee'] ?? null;
     $idClasse=$match['params']['idClasse'] ?? null;

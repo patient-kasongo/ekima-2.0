@@ -43,7 +43,7 @@
                             ?>
                             <?php if(!empty($moisPayements)) :?>
                                     <?php foreach ($moisPayements as $oneMonth): ?>
-                                        <div>- <?= $oneMonth->sommeEnChiffre ?>$ </div>
+                                        <div><?= $oneMonth->sommeEnChiffre ?>$ <br> </div>
                                     <?php endforeach;?>
                             <?php else: ?>
                                 <div>-</div>
@@ -58,7 +58,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th colspan="7" class="text-center">List des élèves</th>
+                    <th colspan="13" class="text-center">List des élèves</th>
                 </tr>
             </thead>
             <tr>
@@ -69,10 +69,22 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <?php foreach ($eleves as $eleve):?>
                 <tr>
-                    <td><a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="list-group-item list-group-item-action"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a></td>
+                    <td><a href="<?= isset($router) ? $router->generate('viewPupilDetail', ['idAnnee' => $idAnnee, 'idClasse'=>$idClasse, 'matricule'=>$eleve->matricule]) : '/public/login' ?>" class="text-dark"><li class="list-unstyled"><?= $eleve->nom.' '.$eleve->postnom.' '.$eleve->prenom ?></li></a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

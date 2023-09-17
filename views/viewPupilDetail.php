@@ -33,21 +33,34 @@
             <a class="btn-primary btn" href="<?= isset($router) ? $router->generate('gestion_payement', ['idAnnee' => $idAnnee,'matricule'=>$matricule]) : '/public/login' ?>">Payement</a>
         <?php endif; ?>
     </div>
-    <h3 class="text-center">Situation financière</h3>
-    <?php if(empty($sf) || !$sf): ?>
+    <?php if(empty($sf)): ?>
+        <h3 class="text-center">Situation financière</h3>
         <div class="display-5 text-center">Aucun payement enregistrer</div>
     <?php else: ?>
-        <ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="3"><h4>Situation financière</h4></th>
+                </tr>
+            </thead>
+            <tr>
+                <td class="text-center">Motif</td>
+                <td class="text-center">Montant</td>
+                <td class="text-center">Date de payement</td>
+            </tr>
             <?php foreach ($sf as $s): ?>
-                <li>
+                <tr>
                     <?php
-                        echo $s->motif.' '.$s->mois;
+                        echo '<td>'.$s->motif.' '.$s->mois.'</td>';
+                        echo '<td>'.$s->sommeEnChiffre.'$ </td>';
+                        echo '<td>'.$s->dateDujour;
                         if(!$bool): ?>
                             <a href="<?= isset($router) ? $router->generate('viewRecuDetail', ['idRecu' => $s->idRecu]) : '/public/login' ?>" class="print">imprimer</a>
                         <?php endif; ?>
-                </li>
+                    <?= '</td>' ?>
+                </tr>
             <?php endforeach; ?>
-        </ul>
+        </table>
     <?php endif; ?>
     <button class="btn-primary btn" id="print">Imprimer</button>
 </div>

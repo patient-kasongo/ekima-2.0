@@ -10,7 +10,7 @@
     $bool= $user->getRole()=='ADMINISTRATEUR';
     $close=$match['name'] == 'closeScolareYear';
     if(empty($classes)) :?>
-        <div class='display-3 text-center'>Aucune classe dans notre base des données</div>;
+        <div class='display-3 text-center'>Aucune classe dans notre base des données</div>
     <?php else: ?>
         <div class="row g-4 m-3">
             <?php foreach ($classes as $classe): ?>

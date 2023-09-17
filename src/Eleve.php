@@ -84,7 +84,7 @@ class Eleve
     {
         try {
             $pdo=Database::getPdo();
-            $query= "select idRecu,motif,mois from recu,eleve,niveau, annee where recu.tEleveMatricule=eleve.matricule and recu.tAnneeIdAnnee=annee.idAnnee and eleve.matricule=niveau.tEleveMatricule and niveau.tAnneeIdAnnee=annee.idAnnee and idAnnee=:idAnnee and matricule=:matricule";
+            $query= "select idRecu,motif,mois,dateDujour, sommeEnChiffre from recu,eleve,niveau, annee where recu.tEleveMatricule=eleve.matricule and recu.tAnneeIdAnnee=annee.idAnnee and eleve.matricule=niveau.tEleveMatricule and niveau.tAnneeIdAnnee=annee.idAnnee and idAnnee=:idAnnee and matricule=:matricule";
             $stmt= $pdo->prepare($query);
             $stmt->execute(['idAnnee'=>$idAnnee,'matricule' => $this->matricule]);
             $sf=$stmt->fetchAll();

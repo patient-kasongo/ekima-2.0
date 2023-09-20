@@ -1,0 +1,31 @@
+
+# HTID:22266907: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:22266907:
+
+RewriteEngine On
+RewriteRule ^public/login$  public/index.php/login [L]
+RewriteRule ^public/logout$  public/index.php/logout [L]
+RewriteRule ^public/addScolarYear$   public/index.php/addScolarYear [L]
+RewriteRule ^public/gestion-classe$ public/index.php/gestion-classe [L]
+RewriteRule ^public/gestion-classe-add-classe$  public/index.php/gestion-classe-add-classe [L]
+RewriteRule ^public/gestion-classe-add-option$ public/index.php/gestion-classe-add-option [L]
+RewriteRule ^public/gestion-eleve$ public/index.php/gestion-eleve [L]
+RewriteRule ^public/gestion-password$   public/index.php/gestion-password [L]
+RewriteRule ^public/change-password$   public/index.php/change-password [L]
+RewriteRule ^public/reset-caisse-password$   public/index.php/reset-caisse-password [L]
+RewriteRule ^public/search$   public/index.php/search [L]
+RewriteRule ^public/modifie-annee-([0-9]+)$   public/index.php/modifie-annee-$1 [L]
+RewriteRule ^public/modify-option-([0-9]+)$   public/index.php/modify-option-$1 [L]
+RewriteRule ^public/modify-classe-([0-9]+)$   public/index.php/modify-classe-$1 [L]
+RewriteRule ^public/annee-([0-9]+)-classes$   public/index.php/annee-$1-classes [L]
+RewriteRule ^public/annee-([0-9]+)-classes-([0-9]+)$   public/index.php/annee-$1-classes-$2 [L]
+RewriteRule ^public/annee-([0-9]+)-add-pupil$   public/index.php/annee-$1-add-pupil [L]
+RewriteRule ^public/annee-([0-9]+)-classe-([0-9]+)-pupil-([a-zA-Z0-9]+)$   public/index.php/annee-$1-classe-$2-pupil-3 [L]
+RewriteRule ^public/annee-([0-9]+)-classe-([0-9]+)-pupil-([a-zA-Z0-9]+)-modify$   public/index.php/annee-$1-classe-$2-pupil-3-modify [L]
+RewriteRule ^public/annee-([0-9]+)-pupil-([a-zA-Z0-9]+)-payement$   public/index.php/annee-$1-pupil-2-payement [L]
+RewriteRule ^public/recu-([0-9]+)-detail$   public/index.php/recu-$1-detail [L]
+RewriteRule ^public/set-annee-([0-9]+)$   public/index.php/set-annee-$1 [L]
+RewriteRule ^public/bilan-annee-([0-9]+)$   public/index.php/bilan-annee-$1 [L]
+RewriteRule ^public/close-scolare-year-([0-9]+)$   public/index.php/close-scolare-year-$1 [L]
+RewriteRule ^public/close-scolare-year-([0-9]+)-classe-([0-9]+)$   public/index.php/close-scolare-year-$1-classe-$2 [L]

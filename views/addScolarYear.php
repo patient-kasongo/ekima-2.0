@@ -1,6 +1,5 @@
 <?php
     \App\Authentification::accessBlocker();
-    \App\Annee::accessBlockerBySession();
     if(isset($_POST['annee'],$_POST['debut'],$_POST['fin'])){
         $annee=new \App\Annee();
         $annee->annee=$_POST['annee'];
